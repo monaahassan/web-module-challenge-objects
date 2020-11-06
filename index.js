@@ -7,15 +7,19 @@ const latte = {name: "Cafe Latte", price: 4, category: "Drinks"};
 const breakfastBurrito = {name: "Breakfast Burrito", price: 16, category:"Breakfast"};
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 1a: Make a function that builds objects🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
-Add to the function createMenuItems below so it will create objects following the same format found above for latte and breakfastBurrito (name, price, category).  
+Add to the fun ction createMenuItems below so it will create objects following the same format found above for latte and breakfastBurrito (name, price, category).  
 The function should:
   1. Receive values for the object that will be created
   2. Create and return an object using the received values  
 */
 
-function createMenuItem(/*Your code here*/){
-    /*Your code here*/
-}
+function createMenuItem(itemName, itemPrice, itemCategory){
+  return {
+    name : itemName,
+    price : itemPrice,
+    category : itemCategory}
+    }
+console.log (createMenuItem("Wings", 8, "Lunch"));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 1b: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Test your createMenuItems function by doing the following:
@@ -25,6 +29,8 @@ Test your createMenuItems function by doing the following:
   
   For example: createMenuItem("pizza",5,"lunch") would return this as the object: {name:"Pizza",price:5,category:"lunch"}
 */
+
+createMenuItem("burger", 3, "Lunch");
 
 
 
@@ -44,9 +50,17 @@ Using the burger object below do the following:
 export const burger = {
   name: "Burger", 
   price: 18, 
-  category: "Lunch", 
-  /*Your code here*/
+  category: "Lunch",
+  discount: function(patron){
+    if (patron === "teacher" || patron === "student") {
+      return this.price * .75
+    }else if (patron === "public"){
+      return this.price * .90;
+    }
+  } 
+  
 }
+console.log(burger.discount("teacher"));
 
 
 
@@ -66,7 +80,7 @@ const reviews = [
 Using the reviews array above:
   1. log only Julius' feedback to the console
 */
-
+console.log(reviews[5].feedback);
 
 
 
@@ -75,7 +89,17 @@ Using the reviews array above do the following:
   1. Following the same format (name, rating, feedback), add a new fictitious review object to the reviews array
   2. log the whole array to the console, make sure the new review is inside of it   
 */
+function createReview (itemName, itemRating, itemFeedback){ 
+  const newReview = {
+    name : itemName, 
+    rating : itemRating,
+    feedback : itemFeedback
+  }
+  reviews.push(newReview);
+}
+createReview("Mona", 5, "Great Movie!");
 
+//console.log(reviews)
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -83,9 +107,13 @@ Reyna's feedback is missing! Use what you know to do the following:
   1. Add this feedback to Reyna's rating - "this place is chill with really cool people, great for getting work done on weekdays"
   2. log the reviews array to the console to check your work
 */
+function changeFeedback (a, b, c) {
+  a[b].feedback = c; 
+  
+}
+changeFeedback(reviews, 7, "this place is chill with really cool people, great for getting work done on weekdays");
 
-
-
+//console.log(reviews)
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -98,11 +126,16 @@ Use the getReviewByIndex function below to do the following:
 */
 
 
-function getReviewByIndex(/*Your code here*/) {
-  /*Your code here*/
+function getReviewByIndex(array, index) {
+let name = array[index].name;
+let rating = array[index].rating;
+let feedback = array[index].feedback;
+
+
+  return console.log(`${name} gave the restaurant a ${rating} star review, and their feedback was: ${feedback}`);
 }
 
-
+getReviewByIndex(reviews, 7);
   
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -116,9 +149,15 @@ Use the getLastReview function below to do the following:
 */
 
 
-function getLastReview(/*Your code here*/) {
-  /*Your code here*/
+function getLastReview(objArray) {
+const objArray = [reviews.length - 1]
+
+  return console.log(`${objArray.name} gave the restaurant a ${objArray.rating} star review and, their feedback was: ${objArray.feedback}`);
+
 } 
+  
+getLastReview(reviews)
+
 
 
 
