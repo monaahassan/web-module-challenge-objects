@@ -107,8 +107,8 @@ Reyna's feedback is missing! Use what you know to do the following:
   1. Add this feedback to Reyna's rating - "this place is chill with really cool people, great for getting work done on weekdays"
   2. log the reviews array to the console to check your work
 */
-function changeFeedback (a, b, c) {
-  a[b].feedback = c; 
+function changeFeedback (array, index, rating) {
+  array[index].feedback = rating; 
   
 }
 changeFeedback(reviews, 7, "this place is chill with really cool people, great for getting work done on weekdays");
@@ -148,18 +148,11 @@ Use the getLastReview function below to do the following:
   For example: getLastReview(reviews) would return: "Reyna gave the restaurant a 3.5 star review and, their feedback was: this place is chill with really cool people, great for getting work done on weekdays".
 */
 
-
-function getLastReview(objArray) {
-const objArray = [reviews.length - 1]
-
-  return console.log(`${objArray.name} gave the restaurant a ${objArray.rating} star review and, their feedback was: ${objArray.feedback}`);
-
-} 
-  
-getLastReview(reviews)
-
-
-
+function getLastReview(array, index, lastReview) {
+array[index].lastReview = array.pop
+  return array;
+}  
+console.log(getLastReview(array, index.pop,)
 
 ///////////////🍔☕️🍽 STRETCH🍔☕️🍽////////////////////
 
@@ -177,9 +170,9 @@ Use the getReviewsByRating function below to do the following:
   ]
 */
 
- function getReviewByRating(/* code here */) {
-    /* code here */
+ function getReviewByRating() {
   }
+
 
   
 /* 💪💪💪💪💪💪💪💪💪💪 STRETCH 2: 💪💪💪💪💪💪💪💪💪💪   
